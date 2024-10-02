@@ -8,9 +8,9 @@ export default function ProjectCard(props) {
 				src={props.image}
 				alt={props.title}
 			/>
-			<div className="flex flex-col">
-				<h4 className="font-semibold">{props.title}</h4>
-				<p className="mb-2">{props.description}</p>
+			<div className="flex flex-col max-w-lg">
+				<h4 className="font-semibold text-2xl">{props.title}</h4>
+				<p className="mb-2 text-lg">{props.description}</p>
 				{console.log(props.github)}
 				<div className="flex space-x-4">
 					{props.github && (
@@ -18,7 +18,7 @@ export default function ProjectCard(props) {
 							href={props.github}
 							target="_blank"
 							rel="noreferrer"
-							className="flex items-center mb-1"
+							className="flex items-center mb-1 text-lg"
 						>
 							<i className="fa-brands fa-github pr-2"></i>GitHub
 						</a>
@@ -28,9 +28,9 @@ export default function ProjectCard(props) {
 							href={props.preview}
 							target="_blank"
 							rel="noreferrer"
-							className="flex items-center"
+							className="flex items-center text-lg"
 						>
-							<i className="fa-solid fa-eye pr-2"></i>Preview
+							<i className="fa-solid fa-link pr-2"></i>Acceder
 						</a>
 					)}
 				</div>

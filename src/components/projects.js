@@ -4,10 +4,12 @@ import ProjectCard from './project_card';
 export default function Projects() {
 	return (
 		<div className="w-2/3">
-			<h3 className="text-4xl">
+			<h3 className="text-4xl font-extrabold" id="about">
 				<i class="fa-solid fa-code"></i> Proyectos
 			</h3>
-			<p>Estos son algunos de los proyectos en los que he trabajado</p>
+			<p className="my-5">
+				Estos son algunos de los proyectos en los que he trabajado
+			</p>
 			<ProjectCard
 				image="https://i.imgur.com/8O2IfST.png"
 				title="StudyHub"
