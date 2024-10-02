@@ -1,0 +1,13 @@
+.header {
+    font-size: calc(10px + 2vmin);
+}
+
+.links a {
+    color: #e1e3e6;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: #61dafb;
+    text-decoration: underline;
+}
