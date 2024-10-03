@@ -4,6 +4,8 @@ import { RiTailwindCssFill } from 'react-icons/ri';
 import { SiTypescript } from 'react-icons/si';
 import { SiNestjs } from 'react-icons/si';
 import { SiLaravel } from 'react-icons/si';
+import { SiJenkins } from 'react-icons/si';
+import { SiGrafana } from 'react-icons/si';
 
 export default function ProjectCard(props) {
 	let techs = [];
@@ -31,21 +33,23 @@ export default function ProjectCard(props) {
 		TailwindCSS: { type: 'svg', component: RiTailwindCssFill },
 		TypeScript: { type: 'svg', component: SiTypescript },
 		NestJS: { type: 'svg', component: SiNestjs },
-		Laravel: { type: 'svg', component: SiLaravel }
+		Laravel: { type: 'svg', component: SiLaravel },
+		Jenkins: { type: 'svg', component: SiJenkins },
+		Grafana: { type: 'svg', component: SiGrafana }
 	};
 
 	if (props.tech) techs = props.tech.split(', ');
 
 	return (
-		<div className="flex items-center my-5">
+		<div className="flex flex-col md:flex-row items-center my-5 ">
 			<img
-				className="mr-4 h-64 w-auto rounded-lg"
+				className="mr-0 md:mr-4 mb-4 md:mb-0 h-auto w-full md:w-auto max-h-64 rounded-lg object-cover"
 				src={props.image}
 				alt={props.title}
 			/>
-			<div className="flex flex-col max-w-lg">
+			<div className="flex flex-col ml-0 md:ml-4">
 				<h4 className="font-semibold text-2xl">{props.title}</h4>
-				<div className="flex space-x-4 mb-2">
+				<div className="flex flex-wrap gap-2 my-4 md:gap-4 md:flex-row">
 					{techs.map((element) => (
 						<TechButton text={element} icon={tech_icons[element]} />
 					))}

@@ -7,9 +7,6 @@ export default function Projects() {
 			<h3 className="text-4xl font-extrabold" id="about">
 				<i class="fa-solid fa-code"></i> Proyectos
 			</h3>
-			<p className="my-5 text-lg">
-				Estos son algunos de los proyectos en los que he trabajado.
-			</p>
 			<ProjectCard
 				image="https://i.imgur.com/MvsNspM.png"
 				title="StudyHub"
@@ -22,7 +19,7 @@ export default function Projects() {
 			<ProjectCard
 				image="https://i.imgur.com/8O2IfST.png"
 				title="Página Web CB&A Auditores"
-				tech="HTML, TailwindCSS, JavaScript"
+				tech="HTML, TailwindCSS, JavaScript, Jenkins"
 				description="Página web de la empresa CB&A Auditores, realizada con HTML, TailwindCSS y JavaScript."
 				preview="https://cbyaauditores.es/"
 			/>
@@ -30,14 +27,14 @@ export default function Projects() {
 				image="https://i.imgur.com/xhTkLsi.png"
 				title="CB&A Modelo 182"
 				tech="HTML, TailwindCSS, TypeScript, NestJS"
-				description="Herramienta web para la generación del fichero txt compatible conn el modelo 182 de la Agencia Tributaria a partir de un xls/csv."
+				description="Herramienta web para la generación del fichero txt compatible con el modelo 182 de la Agencia Tributaria a partir de un xls/csv."
 				github="https://github.com/sergihejo/cbya-modelo182"
 				preview="https://modelo182.cbyaauditores.es/"
 			/>
 			<ProjectCard
 				image="https://i.imgur.com/fm58uhb.png"
 				title="Página Web FlyAnt Cargo VA"
-				tech="HTML, TailwindCSS, JavaScript, MySQL, Laravel"
+				tech="HTML, TailwindCSS, JavaScript, MySQL, Laravel, Jenkins, Grafana"
 				description="Página web para la aerolínea virtual FlyAnt Cargo VA, realizada con HTML, TailwindCSS y JavaScript."
 				preview="https://flyant.asociacionaspa.es/welcome"
 			/>
