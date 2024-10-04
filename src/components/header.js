@@ -8,14 +8,11 @@ export default function Header() {
 			<nav className="mt-7">
 				<ul className="links flex list-none justify-center align-center">
 					<li className="mx-5">
-						<a href="/">Inicio</a>
+						<a href="#projects">Proyectos</a>
 					</li>
-					<li className="mx-5">
-						<a href="#about">Proyectos</a>
-					</li>
-					<li className="mx-5">
+					{/* <li className="mx-5">
 						<a href="#services">Sobre mí</a>
-					</li>
+					</li> */}
 					<li className="mx-5">
 						<a href="#contact">Contacto</a>
 					</li>

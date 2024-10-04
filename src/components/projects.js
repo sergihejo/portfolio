@@ -4,7 +4,7 @@ import ProjectCard from './project_card';
 export default function Projects() {
 	return (
 		<div className="w-2/3">
-			<h3 className="text-4xl font-extrabold" id="about">
+			<h3 className="text-4xl font-extrabold" id="projects">
 				<i class="fa-solid fa-code"></i> Proyectos
 			</h3>
 			<ProjectCard
