@@ -41,7 +41,7 @@ export default function ProjectCard(props) {
 	if (props.tech) techs = props.tech.split(', ');
 
 	return (
-		<div className="flex flex-col md:flex-row items-center my-5 ">
+		<div className="flex flex-col md:flex-row items-center my-16 ">
 			<img
 				className="mr-0 md:mr-4 mb-4 md:mb-0 h-auto w-full md:w-auto max-h-64 rounded-lg object-cover"
 				src={props.image}
@@ -55,7 +55,7 @@ export default function ProjectCard(props) {
 					))}
 				</div>
 
-				<p className="mb-2 text-lg">{props.description}</p>
+				<p className="mb-2 text-lg text-justify">{props.description}</p>
 				<div className="flex space-x-4">
 					{props.github && (
 						<a

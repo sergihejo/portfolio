@@ -3,3 +3,7 @@
   color: #e1e3e6;
   font-family: 'Roboto', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}

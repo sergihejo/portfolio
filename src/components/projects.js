@@ -20,14 +20,17 @@ export default function Projects() {
 				image="https://i.imgur.com/8O2IfST.png"
 				title="Página Web CB&A Auditores"
 				tech="HTML, TailwindCSS, JavaScript, Jenkins"
-				description="Página web de la empresa CB&A Auditores, realizada con HTML, TailwindCSS y JavaScript."
+				description=" Desarrollo del sitio web de CB&A Auditores utilizando HTML, TailwindCSS y JavaScript.
+  								El proyecto incluyó la implementación de un diseño responsive, optimización del rendimiento y creación de una interfaz moderna, 
+  								centrada en la experiencia del usuario."
 				preview="https://cbyaauditores.es/"
 			/>
 			<ProjectCard
 				image="https://i.imgur.com/xhTkLsi.png"
 				title="CB&A Modelo 182"
 				tech="HTML, TailwindCSS, TypeScript, NestJS"
-				description="Herramienta web para la generación del fichero txt compatible con el modelo 182 de la Agencia Tributaria a partir de un xls/csv."
+				description="Herramienta web desarrollada para la generación automática de un archivo .txt compatible con el modelo 182 de la Agencia Tributaria, 
+  							a partir de datos en formato XLS o CSV. El proyecto simplifica el proceso de conversión y asegura que el fichero cumpla con los requisitos fiscales establecidos."
 				github="https://github.com/sergihejo/cbya-modelo182"
 				preview="https://modelo182.cbyaauditores.es/"
 			/>
@@ -35,7 +38,9 @@ export default function Projects() {
 				image="https://i.imgur.com/fm58uhb.png"
 				title="Página Web FlyAnt Cargo VA"
 				tech="HTML, TailwindCSS, JavaScript, MySQL, Laravel, Jenkins, Grafana"
-				description="Página web para la aerolínea virtual FlyAnt Cargo VA, realizada con HTML, TailwindCSS y JavaScript."
+				description=" Desarrollo de la página web para FlyAnt Cargo VA, una aerolínea virtual que simula operaciones reales en plataformas de vuelo online. 
+  								Utilizando HTML, Laravel, TailwindCSS, JavaScript, entre otros, el sitio incluye funcionalidades como el seguimiento de vuelos virtuales y la integración de un sistema Moodle personalizado para la formación de los pilotos virtuales.
+  								La web es responsive, optimizada para un rendimiento rápido y diseñada para mejorar la experiencia de los usuarios y pilotos de la aerolínea."
 				preview="https://flyant.asociacionaspa.es/welcome"
 			/>
 		</div>
