@@ -9,7 +9,7 @@ import Contact from './components/contact';
 function App() {
 	return (
 		<div className="App min-h-screen">
-			<Header />
+			{/* <Header /> */}
 			<div className="flex flex-col items-center justify-center">
 				<Intro />
 				<Projects />

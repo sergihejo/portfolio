@@ -7,7 +7,7 @@ export default function SocialButton(props) {
 			href={props.link}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="button border-none text-white py-1 px-3 my-1 mx-0.5 text-center rounded-full font-medium text-base inline-block text-lg"
+			className="button border-none text-white py-1 px-3 my-1 mr-4 text-center rounded-full font-medium text-base inline-block text-lg"
 		>
 			<i className={props.icon}></i>
 			<button className="social-button">{props.text}</button>

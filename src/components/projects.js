@@ -8,8 +8,9 @@ export default function Projects() {
 				<i class="fa-solid fa-code"></i> Proyectos
 			</h3>
 			<ProjectCard
-				image="https://i.imgur.com/MvsNspM.png"
+				image="https://i.imgur.com/mtlFXLa.png"
 				title="StudyHub"
+				demo="https://i.imgur.com/PO65gVr.gif, https://i.imgur.com/N6Ppy2d.gif"
 				tech="HTML, CSS, JavaScript, MySQL, Java"
 				tech_icons="fab fa-html5, fab fa-css3-alt, fab fa-js, fab fa-node-js, fab fa-js, fab fa-js, fab fa-js, fab fa-js"
 				tech_colors="text-red-600, text-blue-500, text-yellow-400, text-green-400, text-green-400, text-green-400, text-green-400, text-green-400"

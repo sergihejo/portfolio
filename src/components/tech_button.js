@@ -21,7 +21,7 @@ export default function TechButton(props) {
 	};
 
 	return (
-		<button className="tech-button flex space-x-1 items-center border-none text-white text-center rounded-full font-medium text-base inline-block text-sm">
+		<button className="tech-button flex space-x-1 items-center border-none text-white text-center rounded-full font-medium text-lg inline-block cursor-default">
 			{renderIcon()} {props.text}
 		</button>
 	);

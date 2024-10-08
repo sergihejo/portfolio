@@ -1,29 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
-	const [result, setResult] = React.useState('');
+	const [formData, setFormData] = useState({ name: '', email: '' });
+	const [result, setResult] = useState('');
 
-	const onSubmit = async (event) => {
-		event.preventDefault();
-		setResult('Enviando...');
-		const formData = new FormData(event.target);
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({ ...formData, [name]: value });
+	};
 
-		const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
-		formData.append('access_key', accessKey);
+	const handleSubmit = async (event) => {
+		event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+		try {
+			// Convertir los datos del formulario a un objeto FormData
+			const dataToSend = new FormData();
+			dataToSend.append('name', formData.name);
+			dataToSend.append('email', formData.email);
+			dataToSend.append('message', formData.message);
 
-		const response = await fetch('https://api.web3forms.com/submit', {
-			method: 'POST',
-			body: formData
-		});
+			const response = await fetch('https://formspree.io/f/mpwzabzb', {
+				method: 'POST',
+				body: dataToSend,
+				headers: {
+					Accept: 'application/json'
+				}
+			});
 
-		const data = await response.json();
+			const data = await response.json();
 
-		if (data.success) {
-			setResult('Formulario enviado correctamente');
-			event.target.reset();
-		} else {
-			console.log('Error', data);
-			setResult(data.message);
+			if (data.ok) {
+				setResult(
+					'Formulario enviado correctamente. ¡Gracias por contactar!'
+				);
+				// Limpiar el formulario tanto visualmente como el estado
+				setFormData({ name: '', email: '', message: '' }); // Limpiar el estado del formulario
+				event.target.reset(); // Limpiar los campos del formulario HTML
+			} else {
+				console.log('Error', data);
+				setResult(data.error || 'Error al enviar el formulario');
+			}
+		} catch (error) {
+			console.error('Error en la solicitud', error);
+			setResult('Ocurrió un error al enviar el formulario');
 		}
 	};
 
@@ -38,7 +57,7 @@ export default function Contact() {
 			<p className="text-lg mb-5">
 				Puedes contactar conmigo utilizando el siguiente formulario
 			</p>
-			<form className="flex flex-col w-2/3" onSubmit={onSubmit}>
+			<form className="flex flex-col w-2/3" onSubmit={handleSubmit}>
 				<label htmlFor="name" className="text-lg">
 					Nombre y apellidos
 				</label>
@@ -46,6 +65,8 @@ export default function Contact() {
 					type="text"
 					id="name"
 					name="name"
+					value={formData.name}
+					onChange={handleChange}
 					className="border-2 border-gray-300 rounded-lg p-1 mb-3 text-black"
 					required
 				/>
@@ -56,6 +77,8 @@ export default function Contact() {
 					type="email"
 					id="email"
 					name="email"
+					value={formData.email}
+					onChange={handleChange}
 					className="border-2 border-gray-300 rounded-lg p-1 mb-3 text-black"
 					required
 				/>
@@ -65,9 +88,17 @@ export default function Contact() {
 				<textarea
 					id="message"
 					name="message"
+					value={formData.message}
+					onChange={handleChange}
 					className="border-2 border-gray-300 rounded-lg p-1 mb-3 text-black"
 					required
 				/>
+
+				<div
+					class="g-recaptcha"
+					data-sitekey="6LdsuFsqAAAAAABpgzPrFlwbdzOncSPLAHmw1cwc"
+				></div>
+
 				<button
 					type="submit"
 					className="bg-blue-500 text-white font-semibold p-2 rounded-lg"
