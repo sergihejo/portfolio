@@ -8,7 +8,7 @@ import Contact from './components/contact';
 
 function App() {
 	return (
-		<div className="App min-h-screen">
+		<div className="App min-h-screen bg-gradient-to-t from-slate-950 to-slate-800 text-white">
 			{/* <Header /> */}
 			<div className="flex flex-col items-center justify-center">
 				<Intro />
