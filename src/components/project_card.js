@@ -108,7 +108,6 @@ export default function ProjectCard(props) {
 							<i className="fa-solid fa-link pr-2"></i>Acceder
 						</a>
 					)}
-					{console.log(gifs[0])}
 					{props.demo && (
 						<button
 							onClick={() => openModal(0)} // Cambia esto por la ruta del GIF

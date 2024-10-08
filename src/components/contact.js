@@ -54,7 +54,7 @@ export default function Contact() {
 			<h2 className="text-4xl font-semibold my-5">
 				<i class="fa-solid fa-envelope-open-text"></i> Contacto
 			</h2>
-			<p className="text-lg mb-5">
+			<p className="text-lg mb-5 w-2/3">
 				Puedes contactar conmigo utilizando el siguiente formulario
 			</p>
 			<form className="flex flex-col w-2/3" onSubmit={handleSubmit}>
@@ -93,11 +93,6 @@ export default function Contact() {
 					className="border-2 border-gray-300 rounded-lg p-1 mb-3 text-black"
 					required
 				/>
-
-				<div
-					class="g-recaptcha"
-					data-sitekey="6LdsuFsqAAAAAABpgzPrFlwbdzOncSPLAHmw1cwc"
-				></div>
 
 				<button
 					type="submit"
