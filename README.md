@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Portafolio Personal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio contiene el código fuente de mi portafolio personal, donde presento algunos de los proyectos en los que he trabajado como ingeniero informático especializado en **Tecnologías de la Información**.
 
-## Available Scripts
+## Tecnologías utilizadas
 
-In the project directory, you can run:
+- **React**
+- **TailwindCSS**
+- **JavaScript**
 
-### `npm start`
+## Proyectos destacados
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### [FlyAnt Cargo VA - Página Web](https://flyant.asociacionaspa.es/welcome)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Tecnologías**: HTML, TailwindCSS, JavaScript, MySQL, Laravel, Jenkins, Grafana
+- Desarrollo de la página web de FlyAnt Cargo VA, una aerolínea virtual que simula operaciones reales en plataformas de vuelo online.
+- Funcionalidades clave: seguimiento de vuelos virtuales, integración de Moodle personalizado, despliegue y mantenimiento de servidores.
 
-### `npm test`
+### Herramienta Web para el Modelo 182
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Tecnologías**: HTML, TailwindCSS, JavaScript
+- Herramienta para generar archivos .txt compatibles con el modelo 182 de la Agencia Tributaria a partir de archivos XLS/CSV.
+- El proyecto incluye el despliegue y mantenimiento de servidores para asegurar su correcto funcionamiento.
 
-### `npm run build`
+### [CB&A Auditores - Página Web](https://cba-auditores.com)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Tecnologías**: HTML, TailwindCSS, JavaScript
+- Desarrollo de la página web corporativa para CB&A Auditores, optimizada para rendimiento y diseño responsivo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Versión Inicial
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este portafolio se encuentra en una **versión inicial**, donde algunos datos están actualmente hardcodeados. Próximamente, se implementarán mejoras que incluirán:
 
-### `npm run eject`
+- Gestión dinámica de la información a través de una base de datos en lugar de contenido estático.
+- Integración de nuevas secciones y funcionalidades.
+- Optimización del rendimiento y accesibilidad.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+El objetivo es seguir evolucionando el portafolio para hacerlo más interactivo y mantenerlo actualizado con los últimos proyectos y tecnologías que estoy utilizando.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contacto
+Si tienes alguna duda o estás interesado en colaborar en algún proyecto, puedes contactarme a través de los enlaces de contacto en mi portafolio.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
