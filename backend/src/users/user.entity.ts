@@ -1,38 +1,37 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('projects')
-export class Project {
+@Entity('users')
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  title: string;
+  @Column({ length: 50 })
+  name: string;
 
-  @Column()
+  @Column({ length: 50 })
+  email: string;
+
+  @Column({ length: 50 })
+  password: string;
+
+  @Column({ nullable: true })
+  image_url: string;
+
+  @Column({ nullable: true })
   description: string;
-
-  @Column()
-  tech_stack: string;
 
   @Column({ nullable: true })
   github_url: string;
 
   @Column({ nullable: true })
-  demo_url: string;
+  linkedin_url: string;
 
   @Column({ nullable: true })
-  preview_url: string;
-
-  @Column({ nullable: true })
-  image_url: string;
+  twitter_url: string;
 
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   updated_at: Date;
-
-  constructor(partial: Partial<Project>) {
-    Object.assign(this, partial);
-  }
 }

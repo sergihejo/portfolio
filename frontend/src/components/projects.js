@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProjectCard from './project_card';
+import axios from 'axios';
 
 export default function Projects() {
+	const [projects, setProjects] = useState([]);
+
+	useEffect(() => {
+		const fetchProjects = async () => {
+			try {
+				const response = await axios.get(
+					'http://localhost:3001/projects'
+				);
+				setProjects(response.data);
+			} catch (error) {
+				console.error('Error fetching projects:', error);
+			}
+		};
+
+		fetchProjects();
+	}, []);
+
+	projects.map((project) => console.log(project.title));
+
 	return (
 		<div className="w-2/3">
 			<h3 className="text-4xl font-extrabold" id="projects">
