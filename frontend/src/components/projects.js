@@ -9,7 +9,8 @@ export default function Projects() {
 		const fetchProjects = async () => {
 			try {
 				const response = await axios.get(
-					'http://localhost:3001/projects'
+					// Get url from the .env file
+					process.env.REACT_APP_BACKEND_URL + '/projects'
 				);
 				setProjects(response.data);
 			} catch (error) {
@@ -20,14 +21,24 @@ export default function Projects() {
 		fetchProjects();
 	}, []);
 
-	projects.map((project) => console.log(project.title));
-
 	return (
 		<div className="w-2/3">
 			<h3 className="text-4xl font-extrabold" id="projects">
 				<i class="fa-solid fa-code"></i> Proyectos
 			</h3>
-			<ProjectCard
+			{projects.map((project) => (
+				<ProjectCard
+					image={project.image}
+					title={project.title}
+					demo={project.demo}
+					tech={project.tech}
+					tech_icons={project.tech_icons}
+					tech_colors={project.tech_colors}
+					description={project.description}
+					github={project.github}
+				/>
+			))}
+			{/* <ProjectCard
 				image="https://i.imgur.com/mtlFXLa.png"
 				title="StudyHub"
 				demo="https://i.imgur.com/PO65gVr.gif, https://i.imgur.com/N6Ppy2d.gif"
@@ -63,7 +74,7 @@ export default function Projects() {
   								Utilizando HTML, Laravel, TailwindCSS, JavaScript, entre otros, el sitio incluye funcionalidades como el seguimiento de vuelos virtuales y la integración de un sistema Moodle personalizado para la formación de los pilotos virtuales.
   								La web es responsive, optimizada para un rendimiento rápido y diseñada para mejorar la experiencia de los usuarios y pilotos de la aerolínea."
 				preview="https://flyant.asociacionaspa.es/welcome"
-			/>
+			/> */}
 		</div>
 	);
 }
