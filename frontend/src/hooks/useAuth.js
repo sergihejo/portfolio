@@ -32,9 +32,10 @@ function useProvideAuth() {
 
 		if (data.access_token) {
 			localStorage.setItem('token', data.access_token);
-			setUser({ username }); // Guarda los datos del usuario en el estado
+			setUser({ username });
+			window.location.href = '/admin';
 		} else {
-			console.error('Error en login');
+			throw new Error('Login failed. Please check your credentials.');
 		}
 	};
 
@@ -42,6 +43,7 @@ function useProvideAuth() {
 	const logout = () => {
 		localStorage.removeItem('token');
 		setUser(null);
+		window.location.href = '/';
 	};
 
 	// Comprobar si el usuario está autenticado al cargar el componente

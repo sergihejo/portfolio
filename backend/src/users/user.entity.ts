@@ -32,6 +32,9 @@ export class User {
   @Column({ nullable: true })
   twitter_url: string;
 
+  @Column({ default: true })
+  validated: boolean;
+
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 

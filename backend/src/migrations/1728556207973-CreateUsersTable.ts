@@ -67,6 +67,11 @@ export class CreateUsersTable1728556207973 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'validated',
+            type: 'boolean',
+            default: false,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'CURRENT_TIMESTAMP',

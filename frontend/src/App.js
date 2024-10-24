@@ -7,13 +7,14 @@ import Footer from './components/footer';
 import Contact from './components/contact';
 import { AuthProvider } from './hooks/useAuth';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Auth/dashboard';
 import PrivateRoute from './components/Auth/private_route';
 import Login from './components/Auth/login';
 import AdminDashboard from './components/Admin/dashboard';
 import AdminUsers from './components/Admin/users';
 import AdminProjects from './components/Admin/projects';
-import AdminStats from './components/Admin/stats';
+import Register from './components/register';
+import PendingValidation from './components/pendingValidation';
+import EditUser from './components/Admin/editUser';
 
 function App() {
 	return (
@@ -23,13 +24,11 @@ function App() {
 				<Router>
 					<Routes>
 						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+
 						<Route
-							path="/dashboard"
-							element={
-								<PrivateRoute>
-									<Dashboard />
-								</PrivateRoute>
-							}
+							path="/pendingValidation"
+							element={<PendingValidation />}
 						/>
 
 						<Route
@@ -37,6 +36,15 @@ function App() {
 							element={
 								<PrivateRoute>
 									<AdminDashboard />
+								</PrivateRoute>
+							}
+						/>
+
+						<Route
+							path="/admin/users/edit/:id"
+							element={
+								<PrivateRoute>
+									<EditUser />
 								</PrivateRoute>
 							}
 						/>
@@ -55,15 +63,6 @@ function App() {
 							element={
 								<PrivateRoute>
 									<AdminProjects />
-								</PrivateRoute>
-							}
-						/>
-
-						<Route
-							path="/admin/stats"
-							element={
-								<PrivateRoute>
-									<AdminStats />
 								</PrivateRoute>
 							}
 						/>
