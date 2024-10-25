@@ -12,7 +12,11 @@ const UserManagement = () => {
     const fetchUsers = async () => {
         try {
             const response = await axios.get(
-                process.env.REACT_APP_BACKEND_URL + '/users'
+                process.env.REACT_APP_BACKEND_URL + '/users', {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                }
             );
             setUsers(response.data);
         } catch (error) {
@@ -42,7 +46,12 @@ const UserManagement = () => {
 
         try {
             await axios.delete(
-                process.env.REACT_APP_BACKEND_URL + `/users/${id}`
+                process.env.REACT_APP_BACKEND_URL + `/users/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                }
             );
             fetchUsers();
         } catch (error) {

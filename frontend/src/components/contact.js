@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
 	const [formData, setFormData] = useState({ name: '', email: '' });
@@ -11,15 +10,14 @@ export default function Contact() {
 	};
 
 	const handleSubmit = async (event) => {
-		event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+		event.preventDefault();
 		try {
-			// Convertir los datos del formulario a un objeto FormData
 			const dataToSend = new FormData();
 			dataToSend.append('name', formData.name);
 			dataToSend.append('email', formData.email);
 			dataToSend.append('message', formData.message);
 
-			const response = await fetch('https://formspree.io/f/mpwzabzb', {
+			const response = await fetch(process.env.REACT_APP_CONTACT_URL, {
 				method: 'POST',
 				body: dataToSend,
 				headers: {
@@ -33,9 +31,8 @@ export default function Contact() {
 				setResult(
 					'Formulario enviado correctamente. ¡Gracias por contactar!'
 				);
-				// Limpiar el formulario tanto visualmente como el estado
-				setFormData({ name: '', email: '', message: '' }); // Limpiar el estado del formulario
-				event.target.reset(); // Limpiar los campos del formulario HTML
+				setFormData({ name: '', email: '', message: '' });
+				event.target.reset();
 			} else {
 				console.log('Error', data);
 				setResult(data.error || 'Error al enviar el formulario');
@@ -52,7 +49,7 @@ export default function Contact() {
 			className="flex flex-col items-center justify-center w-full mb-10"
 		>
 			<h2 className="text-4xl font-semibold my-5">
-				<i class="fa-solid fa-envelope-open-text"></i> Contacto
+				<i className="fa-solid fa-envelope-open-text"></i> Contacto
 			</h2>
 			<p className="text-lg mb-5 w-2/3">
 				Puedes contactar conmigo utilizando el siguiente formulario
