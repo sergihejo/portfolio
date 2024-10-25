@@ -15,6 +15,7 @@ import AdminProjects from './components/Admin/projects';
 import Register from './components/register';
 import PendingValidation from './components/pendingValidation';
 import EditUser from './components/Admin/editUser';
+import EditProject from "./components/Admin/editProject";
 
 function App() {
 	return (
@@ -49,6 +50,14 @@ function App() {
 							}
 						/>
 
+						<Route
+							path="/admin/projects/edit/:id"
+							element={
+								<PrivateRoute>
+									<EditProject />
+								</PrivateRoute>
+							}
+						/>
 						<Route
 							path="/admin/users"
 							element={

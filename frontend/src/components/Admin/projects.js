@@ -7,7 +7,11 @@ const ProjectManagement = () => {
     const [newProject, setNewProject] = useState({
         title: '',
         description: '',
-        tech_stack: ''
+        tech_stack: '',
+        github_url: '',
+        demo_url: '',
+        preview_url: '',
+        image_url: ''
     });
 
     useEffect(() => {
@@ -38,11 +42,39 @@ const ProjectManagement = () => {
                 process.env.REACT_APP_BACKEND_URL + '/projects',
                 newProject
             );
-            fetchProjects(); // Actualizar la lista de proyectos
+            fetchProjects();
+            setNewProject({
+                title: '',
+                description: '',
+                tech_stack: '',
+                github_url: '',
+                demo_url: '',
+                preview_url: '',
+                image_url: ''
+            });
         } catch (error) {
             console.error('Error adding project:', error);
         }
     };
+
+    const deleteProject = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this project?')) {
+            return;
+        }
+
+        try {
+            await axios.delete(
+                process.env.REACT_APP_BACKEND_URL + `/projects/${id}`
+            );
+            fetchProjects();
+        } catch (error) {
+            console.error('Error deleting project:', error);
+        }
+    }
+
+    const editProject = (id) => {
+        window.location.href = `/admin/projects/edit/${id}`;
+    }
 
     return (
         <div className="p-5">
@@ -54,6 +86,11 @@ const ProjectManagement = () => {
                         <th className="px-6 py-3">Title</th>
                         <th className="px-6 py-3">Description</th>
                         <th className="px-6 py-3">Tech Stack</th>
+                        <th className="px-6 py-3">GitHub URL</th>
+                        <th className="px-6 py-3">Demo URL</th>
+                        <th className="px-6 py-3">Preview URL</th>
+                        <th className="px-6 py-3">Image URL</th>
+                        <th className="px-6 py-3">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -62,6 +99,60 @@ const ProjectManagement = () => {
                             <th className="px-6 py-4 font-medium whitespace-nowrap text-white">{project.title}</th>
                             <td className="px-6 py-4">{project.description}</td>
                             <td className="px-6 py-4">{project.tech_stack}</td>
+                            <td className="px-6 py-4">
+                                {project.github_url && (
+                                    <a
+                                        href={project.github_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-blue-500"
+                                    >
+                                        GitHub
+                                    </a>
+                                )}
+                            </td>
+                            <td className="px-6 py-4">
+                                {project.demo_url && (
+                                    <a
+                                        href={project.demo_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-blue-500"
+                                    >
+                                        Demo
+                                    </a>
+                                )}
+                            </td>
+                            <td className="px-6 py-4">
+                                {project.preview_url && (
+                                    <a
+                                        href={project.preview_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-blue-500"
+                                    >
+                                        Preview
+                                    </a>
+                                )}
+                            </td>
+                            <td className="px-6 py-4">
+                                {project.image_url && (
+                                    <img
+                                        src={project.image_url}
+                                        alt={project.username}
+                                        className="w-8 h-8 rounded-full"
+                                    />
+                                )}
+                            </td>
+                            <td className="px-6 py-4">
+                                <button className="bg-sky-700 text-white px-4 py-2 rounded-lg mr-2"
+                                        onClick={() => editProject(project.id)}
+                                >Edit
+                                </button>
+                                <button className="bg-red-700 text-white px-4 py-2 rounded-lg"
+                                        onClick={() => deleteProject(project.id)}>Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                     </tbody>
@@ -99,11 +190,51 @@ const ProjectManagement = () => {
                             value={newProject.tech_stack}
                             onChange={handleInputChange}
                         />
-                        <button onClick={handleAddProject}
-                                className="mt-3 w-full rounded-lg border-solid bg-sky-700 text-white px-4 py-2 hover:bg-sky-800"
-                        >Add Project
-                        </button>
                     </div>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            name="github_url"
+                            placeholder="GitHub URL"
+                            className="border-2 border-gray-300 text-black rounded-lg p-2 w-full"
+                            value={newProject.github_url}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            name="demo_url"
+                            placeholder="Demo URL"
+                            className="border-2 border-gray-300 text-black rounded-lg p-2 w-full"
+                            value={newProject.demo_url}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            name="preview_url"
+                            placeholder="Preview URL"
+                            className="border-2 border-gray-300 text-black rounded-lg p-2 w-full"
+                            value={newProject.preview_url}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            name="image_url"
+                            placeholder="Image URL"
+                            className="border-2 border-gray-300 text-black rounded-lg p-2 w-full"
+                            value={newProject.image_url}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <button onClick={handleAddProject}
+                            className="mt-3 w-full rounded-lg border-solid bg-sky-700 text-white px-4 py-2 hover:bg-sky-800"
+                    >Add Project
+                    </button>
                 </div>
             </div>
         </div>

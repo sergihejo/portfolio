@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './style.css';
 import { useAuth } from '../../hooks/useAuth';
 
 const AdminDashboard = () => {
@@ -9,18 +8,18 @@ const AdminDashboard = () => {
 	const handleLogout = () => {
 		auth.logout();
 	};
+
 	return (
-		<div className="admin-dashboard">
-			<h1>Admin Dashboard</h1>
-			<div className="admin-actions">
+		<div className="p-5">
+			<h1 className="text-3xl font-bold">Admin Dashboard</h1>
+			<div className="m-5">
 				<Link to="/admin/users">
-					<button className="admin-btn">Manage Users</button>
+					<button className="m-2 py-2 px-5 bg-sky-700 hover:bg-sky-900 text-white border-0 cursor-pointer">Manage Users</button>
 				</Link>
 				<Link to="/admin/projects">
-					<button className="admin-btn">Manage Projects</button>
+					<button className="m-2 py-2 px-5 bg-sky-700 hover:bg-sky-900 text-white border-0 cursor-pointer">Manage Projects</button>
 				</Link>
-				{/* Logout  */}
-				<button className="admin-btn" onClick={handleLogout}>
+				<button className="m-2 py-2 px-5 bg-sky-700 hover:bg-sky-900 text-white border-0 cursor-pointer" onClick={handleLogout}>
 					Logout
 				</button>
 			</div>
