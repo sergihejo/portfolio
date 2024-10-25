@@ -35,7 +35,6 @@ export default function ProjectCard(props) {
 
 	if (props.tech) techs = props.tech.split(', ');
 
-	// Convertir la cadena en un array de enlaces
 	var gifs = [];
 	if (props.demo) {
 		gifs = props.demo.split(',').map((gif) => gif.trim());
@@ -53,14 +52,12 @@ export default function ProjectCard(props) {
 		setIsModalOpen(false);
 	};
 
-	// Función para cerrar el modal al hacer clic en el fondo
 	const handleBackgroundClick = (e) => {
 		if (e.target === e.currentTarget) {
 			closeModal();
 		}
 	};
 
-	// Cambiar GIF
 	const showNextGif = () => {
 		setCurrentGifIndex((prevIndex) => (prevIndex + 1) % gifs.length);
 	};

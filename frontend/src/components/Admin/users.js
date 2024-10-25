@@ -54,10 +54,10 @@ const UserManagement = () => {
         <div className="p-5">
             <h1 className="text-3xl mb-6 font-bold">User Management</h1>
             <button
-                onClick={() => (window.location.href = '/admin')}
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-sky-700 text-white px-4 py-2 rounded-lg mb-4"
+                onClick={() => window.location.href = '/admin'}
             >
-                Go to Dashboard
+                Go To Admin Panel
             </button>
             <div className="flex justify-center overflow-x-auto mb-12">
                 <table className="w-fit text-sm text-left text-gray-400">

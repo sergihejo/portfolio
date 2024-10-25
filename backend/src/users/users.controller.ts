@@ -8,7 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { AuthGuard } from '../auth/auth.guard'; // Adjust the import path as needed
+import { AuthGuard } from '../auth/auth.guard';
 import { User } from './user.entity';
 
 @Controller('users')
@@ -24,11 +24,6 @@ export class UsersController {
   findOne(id: number) {
     return this.usersService.findOne(id);
   }
-
-  // @Get('search/:email')
-  // findByEmail(email: string) {
-  //   return this.usersService.findByEmail(email);
-  // }
 
   @Get('search/:username')
   findByUsername(@Param('username') username: string) {

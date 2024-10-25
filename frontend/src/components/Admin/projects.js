@@ -79,6 +79,12 @@ const ProjectManagement = () => {
     return (
         <div className="p-5">
             <h1 className="text-3xl mb-6 font-bold">Project Management</h1>
+            <button
+                className="bg-sky-700 text-white px-4 py-2 rounded-lg mb-4"
+                onClick={() => window.location.href = '/admin'}
+            >
+                Go To Admin Panel
+            </button>
             <div className="flex justify-center overflow-x-auto mb-12">
                 <table className="w-fit text-sm text-left text-gray-400">
                     <thead className="text-xs uppercase bg-gray-700 text-gray-400">
@@ -97,7 +103,9 @@ const ProjectManagement = () => {
                     {projects.map((project) => (
                         <tr key={project.id} className="border-b bg-gray-800 border-gray-700">
                             <th className="px-6 py-4 font-medium whitespace-nowrap text-white">{project.title}</th>
-                            <td className="px-6 py-4">{project.description}</td>
+                            <td className="px-6 py-4">
+                                {project.description.length > 50 ? project.description.substring(0, 25) + '...' : project.description}
+                            </td>
                             <td className="px-6 py-4">{project.tech_stack}</td>
                             <td className="px-6 py-4">
                                 {project.github_url && (
@@ -162,6 +170,12 @@ const ProjectManagement = () => {
                 <div className="bg-gray-700 shadow-md rounded-lg p-6 w-full max-w-md m-7">
                     <h2 className="text-xl font-semibold">Add New Project</h2>
                     <div className="my-4">
+                        <label
+                            htmlFor="title"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Title
+                        </label>
                         <input
                             type="text"
                             name="title"
@@ -172,6 +186,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="description"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Description
+                        </label>
                         <input
                             type="text"
                             name="description"
@@ -182,6 +202,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="tech_stack"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Tech Stack
+                        </label>
                         <input
                             type="text"
                             name="tech_stack"
@@ -192,6 +218,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="github_url"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            GitHub URL
+                        </label>
                         <input
                             type="text"
                             name="github_url"
@@ -202,6 +234,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="demo_url"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Demo URL
+                        </label>
                         <input
                             type="text"
                             name="demo_url"
@@ -212,6 +250,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="preview_url"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Preview URL
+                        </label>
                         <input
                             type="text"
                             name="preview_url"
@@ -222,6 +266,12 @@ const ProjectManagement = () => {
                         />
                     </div>
                     <div className="mb-4">
+                        <label
+                            htmlFor="image_url"
+                            className="block text-gray-200 font-bold mb-2"
+                        >
+                            Image URL
+                        </label>
                         <input
                             type="text"
                             name="image_url"
