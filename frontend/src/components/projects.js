@@ -33,6 +33,7 @@ export default function Projects() {
 					tech={project.tech_stack}
 					description={project.description}
 					github={project.github_url}
+					preview={project.preview_url}
 				/>
 			))}
 		</div>
