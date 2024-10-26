@@ -40,7 +40,12 @@ const ProjectManagement = () => {
         try {
             await axios.post(
                 process.env.REACT_APP_BACKEND_URL + '/projects',
-                newProject
+                newProject,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                }
             );
             fetchProjects();
             setNewProject({

@@ -48,7 +48,12 @@ const EditProject = () => {
         try {
             await axios.put(
                 process.env.REACT_APP_BACKEND_URL + `/projects/${id}`,
-                project
+                project,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                }
             );
             alert('Project details updated successfully');
         } catch (error) {

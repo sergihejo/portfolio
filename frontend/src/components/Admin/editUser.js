@@ -9,7 +9,7 @@ const EditUser = () => {
 		username: '',
 		email: '',
 		password: '',
-		bio: '',
+		description: '',
 		image_url: ''
 	});
 	const [loading, setLoading] = useState(true);
@@ -46,7 +46,12 @@ const EditUser = () => {
 		try {
 			await axios.put(
 				process.env.REACT_APP_BACKEND_URL + `/users/${id}`,
-				user
+				user,
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`
+					}
+				}
 			);
 			alert('User details updated successfully');
 		} catch (error) {
@@ -116,16 +121,16 @@ const EditUser = () => {
 					</div>
 					<div className="mb-4">
 						<label
-							htmlFor="bio"
+							htmlFor="description"
 							className="block text-gray-200 font-bold mb-2"
 						>
 							Bio
 						</label>
 						<textarea
-							name="bio"
+							name="description"
 							placeholder="Bio"
 							className="border-2 border-gray-300 text-black rounded-lg p-2 w-full"
-							value={user.bio}
+							value={user.description}
 							onChange={handleInputChange}
 						/>
 					</div>
