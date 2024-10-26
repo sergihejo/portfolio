@@ -1,44 +1,135 @@
 # Portafolio Personal
 
-Este repositorio contiene el código fuente de mi portafolio personal, donde presento algunos de los proyectos en los que he trabajado como ingeniero informático especializado en **Tecnologías de la Información**.
+En este proyecto se implementa un portfolio personal desarrollado con React en el frontend y NestJS en el backend. El proyecto permite a los usuarios ver una lista de proyectos, junto con detalles como la tecnología utilizada, descripciones, enlaces a GitHub y demos.
 
-## Tecnologías utilizadas
+## Tecnologías Utilizadas
 
-- **React**
-- **TailwindCSS**
-- **JavaScript**
+- **Frontend**:
+  - React
+  - JavaScript
+  - TailwindCSS
+  - Axios
 
-## Proyectos destacados
+- **Backend**:
+  - NestJS
+  - TypeScript
+  - TypeORM
+  - JWT para autenticación
 
-### [FlyAnt Cargo VA - Página Web](https://flyant.asociacionaspa.es/welcome)
+## Instalación
 
-- **Tecnologías**: HTML, TailwindCSS, JavaScript, MySQL, Laravel, Jenkins, Grafana
-- Desarrollo de la página web de FlyAnt Cargo VA, una aerolínea virtual que simula operaciones reales en plataformas de vuelo online.
-- Funcionalidades clave: seguimiento de vuelos virtuales, integración de Moodle personalizado, despliegue y mantenimiento de servidores.
+### Requisitos Previos
 
-### Herramienta Web para el Modelo 182
+- Node.js
+- npm o yarn
 
-- **Tecnologías**: HTML, TailwindCSS, JavaScript
-- Herramienta para generar archivos .txt compatibles con el modelo 182 de la Agencia Tributaria a partir de archivos XLS/CSV.
-- El proyecto incluye el despliegue y mantenimiento de servidores para asegurar su correcto funcionamiento.
+### Clonar el Repositorio
 
-### [CB&A Auditores - Página Web](https://cba-auditores.com)
+```bash
+git clone https://github.com/sergihejo/portfolio.git
+cd portfolio
+```
 
-- **Tecnologías**: HTML, TailwindCSS, JavaScript
-- Desarrollo de la página web corporativa para CB&A Auditores, optimizada para rendimiento y diseño responsivo.
+### Configuración del Backend
 
-## Versión Inicial
+1. Navega al directorio del backend:
 
-Este portafolio se encuentra en una **versión inicial**, donde algunos datos están actualmente hardcodeados. Próximamente, se implementarán mejoras que incluirán:
+```bash
+cd backend
+```
 
-- Gestión dinámica de la información a través de una base de datos en lugar de contenido estático.
-- Integración de nuevas secciones y funcionalidades.
-- Optimización del rendimiento y accesibilidad.
+2. Instala las dependencias:
 
-El objetivo es seguir evolucionando el portafolio para hacerlo más interactivo y mantenerlo actualizado con los últimos proyectos y tecnologías que estoy utilizando.
+```bash
+npm install
+```
 
+3. Configura las variables de entorno en un archivo `.env`:
 
-## Contacto
-Si tienes alguna duda o estás interesado en colaborar en algún proyecto, puedes contactarme a través de los enlaces de contacto en mi portafolio.
+```env
+DB_TYPE=mysql
+DB_HOST=your_host
+DB_PORT=3306
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+DB_DATABASE=your_database
+DB_DRIVER=mysql
+FRONTEND_URL=http://localhost:3000
+JWT_SECRET=your_secret
+```
 
- 
+4. Ejecuta las migraciones de la base de datos:
+
+```bash
+npm run typeorm migration:run
+```
+
+5. Inicia el servidor:
+
+```bash
+npm run start:dev
+```
+
+### Configuración del Frontend
+
+1. Navega al directorio del frontend:
+
+```bash
+cd frontend
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Configura las variables de entorno en un archivo `.env`:
+
+```env
+REACT_APP_BACKEND_URL=http://localhost:3001
+REACT_APP_CONTACT_URL=formspree.io_form_url
+```
+
+4. Inicia la aplicación:
+
+```bash
+npm start
+```
+
+## Uso
+
+Una vez que ambos servidores (frontend y backend) estén en funcionamiento, puedes acceder a la aplicación en `http://localhost:3000`. La página principal mostrará una lista de proyectos con sus detalles.
+
+## Estructura del Proyecto
+
+```plaintext
+portfolio/
+├── backend/
+│   ├── src/
+│   │   ├── auth/
+│   │   ├── projects/
+│   │   ├── users/
+│   │   └── main.ts
+│   ├── .env
+│   ├── nest-cli.json
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── .env
+│   ├── package.json
+│   └── webpack.config.js
+└── README.md
+```
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request para discutir cualquier cambio que te gustaría hacer.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
