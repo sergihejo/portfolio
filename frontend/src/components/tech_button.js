@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 export default function TechButton(props) {
 	const renderIcon = () => {
@@ -26,3 +27,8 @@ export default function TechButton(props) {
 		</button>
 	);
 }
+
+TechButton.propTypes = {
+	text: propTypes.string.isRequired,
+	icon: propTypes.object,
+};

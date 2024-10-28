@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import crypto from 'crypto';
 
 function Register() {
 	const [newUser, setNewUser] = useState({
@@ -34,7 +35,7 @@ function Register() {
 	};
 
 	const generatePassword = () => {
-		const password = Math.random().toString(36).slice(-8);
+		const password = crypto.randomBytes(12).toString('hex');
 		setNewUser({ ...newUser, password });
 	};
 

@@ -34,6 +34,7 @@ export default function Projects() {
 					description={project.description}
 					github={project.github_url}
 					preview={project.preview_url}
+					key={project.id}
 				/>
 			))}
 		</div>
