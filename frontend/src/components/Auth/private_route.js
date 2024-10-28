@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 function PrivateRoute({ children }) {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -76,5 +77,9 @@ function PrivateRoute({ children }) {
 
 	return children;
 }
+
+PrivateRoute.propTypes = {
+	children: PropTypes.node.isRequired,
+};
 
 export default PrivateRoute;

@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import propTypes from "prop-types";
 
 // Crear el contexto de autenticación
 const AuthContext = createContext();
@@ -65,3 +66,7 @@ function useProvideAuth() {
 		logout
 	};
 }
+
+AuthProvider.propTypes = {
+	children: propTypes.node.isRequired,
+};

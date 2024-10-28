@@ -1,5 +1,6 @@
 import React from 'react';
 import './socialbutton.css';
+import propTypes from 'prop-types';
 
 export default function SocialButton(props) {
 	return (
@@ -14,3 +15,9 @@ export default function SocialButton(props) {
 		</a>
 	);
 }
+
+SocialButton.propTypes = {
+	link: propTypes.string.isRequired,
+	icon: propTypes.string.isRequired,
+	text: propTypes.string.isRequired,
+};

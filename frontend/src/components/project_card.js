@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import TechButton from './tech_button';
 import { RiTailwindCssFill } from 'react-icons/ri';
-import { SiTypescript } from 'react-icons/si';
-import { SiNestjs } from 'react-icons/si';
-import { SiLaravel } from 'react-icons/si';
-import { SiJenkins } from 'react-icons/si';
-import { SiGrafana } from 'react-icons/si';
+import { SiTypescript, SiNestjs, SiLaravel, SiJenkins, SiGrafana } from 'react-icons/si';
 import { MdOutlineGif } from 'react-icons/md';
+import PropTypes from 'prop-types';
 
 export default function ProjectCard(props) {
 	let techs = [];
@@ -35,7 +32,7 @@ export default function ProjectCard(props) {
 
 	if (props.tech) techs = props.tech.split(', ');
 
-	var gifs = [];
+	let gifs = [];
 	if (props.demo) {
 		gifs = props.demo.split(',').map((gif) => gif.trim());
 	}
@@ -68,6 +65,19 @@ export default function ProjectCard(props) {
 		);
 	};
 
+	const handleGifKeyDown = (e) => {
+		if (e.key === 'ArrowLeft') {
+			showPreviousGif();
+		} else if (e.key === 'ArrowRight') {
+			showNextGif();
+		}
+	}
+
+	const handleKeyDown = (e) => {
+		if (e.key === 'Escape') {
+			closeModal();
+		}
+	};
 	return (
 		<div className="flex flex-col md:flex-row items-center my-16 ">
 			<img
@@ -79,7 +89,7 @@ export default function ProjectCard(props) {
 				<h4 className="font-semibold text-3xl">{props.title}</h4>
 				<div className="flex flex-wrap gap-2 my-4 md:gap-4 md:flex-row">
 					{techs.map((element) => (
-						<TechButton text={element} icon={tech_icons[element]} />
+						<TechButton text={element} icon={tech_icons[element]} key={element} />
 					))}
 				</div>
 
@@ -119,7 +129,7 @@ export default function ProjectCard(props) {
 			{isModalOpen && (
 				<div
 					className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 w-full"
-					onClick={handleBackgroundClick}
+					onClick={handleBackgroundClick} onKeyDown={handleKeyDown}
 				>
 					<div className="p-4 rounded w-5/6">
 						<button
@@ -149,7 +159,7 @@ export default function ProjectCard(props) {
 									{currentGifIndex > 0 && (
 										<i
 											className="fa-solid fa-angle-left py-4 px-6 rounded text-6xl hover:text-blue-500 transition-colors duration-200 hover:cursor-pointer"
-											onClick={showPreviousGif}
+											onClick={showPreviousGif} onKeyDown={handleGifKeyDown}
 										></i>
 									)}
 								</div>
@@ -164,7 +174,7 @@ export default function ProjectCard(props) {
 									{currentGifIndex < gifs.length - 1 && (
 										<i
 											className="fa-solid fa-angle-right py-4 px-6 rounded text-6xl hover:text-blue-500 transition-colors duration-200 hover:cursor-pointer"
-											onClick={showNextGif}
+											onClick={showNextGif} onKeyDown={handleGifKeyDown}
 											disabled={currentGifIndex === 0}
 										></i>
 									)}
@@ -177,3 +187,13 @@ export default function ProjectCard(props) {
 		</div>
 	);
 }
+
+ProjectCard.propTypes = {
+	image: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	tech: PropTypes.string,
+	description: PropTypes.string.isRequired,
+	github: PropTypes.string,
+	preview: PropTypes.string,
+	demo: PropTypes.string,
+};

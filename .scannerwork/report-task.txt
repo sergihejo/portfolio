@@ -1,0 +1,6 @@
+projectKey=Personal-portfolio
+serverUrl=http://localhost:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://localhost:9000/dashboard?id=Personal-portfolio
+ceTaskId=a0ca5fa2-09df-4335-8fa6-f8cd22d144c2
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a0ca5fa2-09df-4335-8fa6-f8cd22d144c2
