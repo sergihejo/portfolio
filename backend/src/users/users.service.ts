@@ -30,6 +30,15 @@ export class UsersService {
   async findOne(id: number): Promise<User | undefined> {
     return this.userRepository.findOne({
       where: { id },
+      select: {
+    id: true,
+    name: true,
+    image_url: true,
+    description: true,
+    github_url: true,
+    linkedin_url: true,
+    twitter_url: true,
+  }
     });
   }
 

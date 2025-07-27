@@ -1,0 +1,111 @@
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    env_file: .env
+    environment: 
+        - VIRTUAL_HOST=sergihejo.es
+        - LETSENCRYPT_HOST=sergihejo.es
+        - LETSENCRYPT_EMAIL=sergio@sergihejo.es
+      # - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+      # - REACT_APP_CONTACT_URL=${REACT_APP_CONTACT_URL}
+    expose:
+      - "80"
+    volumes:
+      - "./frontend/src:/usr/src/app/src"
+    networks:
+      - portfolio-network
+        # command: "npm start"
+      # depends_on:
+      # - backend
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    env_file: .env
+    environment:
+        - VIRTUAL_HOST=sergihejo.es
+        - VIRTUAL_PATH=/api
+        - LETSENCRYPT_HOST=sergihejo.es
+        - LETSENCRYPT_EMAIL=sergio@sergihejo.es
+        - VIRTUAL_PORT=3001
+      #- DB_HOST=${DB_HOST}
+      #- DB_PORT=3306
+      #- DB_USER=${DB_USER}
+      #- DB_PASSWORD=${DB_PASSWORD}
+      #- DB_NAME=${MYSQL_DATABASE}
+      #- FRONTED_URL=${FRONTEND_URL}
+      #- JWT_SECRET=${JWT_SECRET}
+    volumes:
+      - ./backend:/svr/app
+      - "./scripts/wait.sh:/wait.sh"
+      - /svr/app/node_modules
+    networks:
+      - portfolio-network
+    expose:
+      - "3001"
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: mysql:8
+    restart: always
+    container_name: portfolio-mysql-db 
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - portfolio-network
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs:rw
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+    networks:
+      - portfolio-network
+
+  letsencrypt:
+    image: nginxproxy/acme-companion
+    container_name: letsencrypt
+    restart: unless-stopped
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - ACME_CA_URI=https://acme-v02.api.letsencrypt.org/directory
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certs:/etc/nginx/certs:rw
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+    networks:
+      - portfolio-network
+
+volumes:
+  mysql_data:
+
+networks:
+  portfolio-network:
+    driver: bridge
